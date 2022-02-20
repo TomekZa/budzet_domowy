@@ -3,6 +3,8 @@ package pl.tomek.budżet.kontrolery;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.tomek.budżet.dto.AktywaDTO;
+import pl.tomek.budżet.serwisy.AktywaSerwis;
 
 import java.util.List;
 
@@ -12,10 +14,16 @@ import static java.util.Arrays.asList;
 @RequestMapping("/api")
 public class KontrolerAktywów {
 
-   @GetMapping("/aktywa")
-    public List<Integer> pobierzAktywa(){
+    private final AktywaSerwis aktywaSerwis;
 
-        return asList(1, 2, 3);
-   }
+    public KontrolerAktywów(AktywaSerwis aktywaSerwis) {
+        this.aktywaSerwis = aktywaSerwis;
+    }
+
+    @GetMapping("/aktywa")
+    public AktywaDTO pobierzAktywa() {
+
+        return aktywaSerwis.pobierzWszystkieAktywa();
+    }
 
 }
