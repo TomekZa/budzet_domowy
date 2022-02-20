@@ -1,10 +1,13 @@
 package pl.tomek.budżet.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 import java.util.Objects;
 
 public class AktywaDTO {
 
+    @JsonProperty("Lista aktyw: ")
     private List<Integer> listaAktyw;
 
     public List<Integer> getListaAktyw() {

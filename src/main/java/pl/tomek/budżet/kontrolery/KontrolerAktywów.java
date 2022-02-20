@@ -1,8 +1,6 @@
 package pl.tomek.budżet.kontrolery;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.tomek.budżet.dto.AktywaDTO;
 import pl.tomek.budżet.serwisy.AktywaSerwis;
 
@@ -23,7 +21,13 @@ public class KontrolerAktywów {
     @GetMapping("/aktywa")
     public AktywaDTO pobierzAktywa() {
 
-        return aktywaSerwis.pobierzWszystkieAktywa();
+        return aktywaSerwis.getAktywaDTO();
+    }
+
+    @PostMapping("/aktywa/{aktywa}")
+    public void ustawAktywa(@PathVariable("aktywa") int aktywa) {
+
+        aktywaSerwis.ustawAktywa(aktywa);
     }
 
 }
