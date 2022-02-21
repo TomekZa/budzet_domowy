@@ -4,10 +4,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.tomek.budżet.dto.AktywaDTO;
 import pl.tomek.budżet.serwisy.AktywaSerwis;
 
-import java.util.List;
-
-import static java.util.Arrays.asList;
-
 @RestController
 @RequestMapping("/api")
 public class KontrolerAktywów {
@@ -27,7 +23,7 @@ public class KontrolerAktywów {
     @PostMapping("/aktywa/{aktywa}")
     public void ustawAktywa(@PathVariable("aktywa") int aktywa) {
 
-        aktywaSerwis.ustawAktywa(aktywa);
+        aktywaSerwis.zapiszAktywa(aktywa);
     }
 
 }
